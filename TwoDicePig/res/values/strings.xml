@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">prac3</string>
+    <string name="player">Player</string>
+    <string name="round">Round</string>
+    <string name="total">Total</string>
+    <string name="score">Score</string>
+    <string name="roll">Roll</string>
+    <string name="hold">Hold</string>
+    <string name="rank">Rank</string>
+    <string name="newGame">New Game</string>
+    <string name="rankings">Rankings</string>
+    <string name="stats">Statistics</string>
+    <string name="rounds">Rounds</string>
+    <string name="minScore">Minimum round score</string>
+    <string name="maxScore">Maximum round score</string>
+    <string name="avgScore">Average round score</string>
+    <string name="ones">Ones thrown</string>
+    <string name="twos">Twos thrown</string>
+    <string name="threes">Threes thrown</string>
+    <string name="fours">Fours thrown</string>
+    <string name="fives">Fives thrown</string>
+    <string name="sixes">Sixes thrown</string>
+    <string name="results">Results</string>
+    <string name="numPlayers">Number of players</string>
+    <string name="next">Next</string>
+    <string name="color">Color</string>
+    <string name="colorRed">Red</string>
+    <string name="colorGreen">Green</string>
+    <string name="colorBlue">Blue</string>
+    <string name="wins">Wins</string>
+    <string name="winner">View Your Scores</string>
+    <string name="place">Place</string>
+    <string name="game">Game</string>
+</resources>

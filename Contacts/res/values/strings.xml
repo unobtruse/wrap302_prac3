@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">task2</string>
+    <string name="sort">Sort</string>
+    <string name="add">Add</string>
+    <string name="surname">Surname</string>
+    <string name="cell">Cell</string>
+    <string name="email">Email</string>
+    <string name="name">Name</string>
+    <string name="apply">Apply</string>
+</resources>
