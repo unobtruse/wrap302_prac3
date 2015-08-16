@@ -37,10 +37,11 @@ public class Main extends Activity
         adapter = new ContactAdapter(this, contacts);
         FragmentManager manager = getFragmentManager();
         FragmentTransaction ft = manager.beginTransaction();
-        ContactsFragment contactsFragment = (ContactsFragment) manager.findFragmentById(R.id.listContainer);
-        if(contactsFragment == null) {
-            contactsFragment = new ContactsFragment();
+        ContactsFragment contactsFragment = new ContactsFragment();
+        if(manager.findFragmentById(R.id.listContainer) == null) {
             ft.add(R.id.listContainer, contactsFragment);
+        } else {
+            ft.replace(R.id.listContainer, contactsFragment);
         }
         contactsFragment.setListAdapter(adapter);
         View editContainer = findViewById(R.id.editContainer);
