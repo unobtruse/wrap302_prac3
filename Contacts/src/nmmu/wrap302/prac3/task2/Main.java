@@ -43,7 +43,6 @@ public class Main extends Activity
         } else {
             ft.replace(R.id.listContainer, contactsFragment);
         }
-        contactsFragment.setListAdapter(adapter);
         View editContainer = findViewById(R.id.editContainer);
         if(editContainer != null) {
             EditFragment editFragment = (EditFragment) manager.findFragmentById(R.id.editContainer);
@@ -52,6 +51,7 @@ public class Main extends Activity
                 ft.add(R.id.editContainer, editFragment);
             }
         }
+        contactsFragment.setListAdapter(adapter);
         ft.commit();
     }
 
@@ -63,7 +63,7 @@ public class Main extends Activity
 
     @Override
     public void onContactSelected(int position) {
-        addEditFragment().setPosition(position);
+        addEditFragment(false).setPosition(position);
     }
 
     @Override
@@ -74,16 +74,22 @@ public class Main extends Activity
 
     @Override
     public void onContactAddClick() {
-        addEditFragment();
+        addEditFragment(true);
     }
 
-    private EditFragment addEditFragment() {
-        EditFragment fragment;
+    private EditFragment addEditFragment(boolean clear) {
+        EditFragment fragment = new EditFragment();
         View editContainer = findViewById(R.id.editContainer);
         if(editContainer != null) { // in landscape view
-            fragment = (EditFragment) getFragmentManager().findFragmentById(R.id.editContainer);
+            if(!clear) {
+                fragment = (EditFragment) getFragmentManager().findFragmentById(R.id.editContainer);
+                if(fragment == null)
+                    fragment = new EditFragment();
+            }
+            getFragmentManager().beginTransaction()
+                    .replace(R.id.editContainer, fragment)
+                    .commit();
         } else { // portrait view
-            fragment = new EditFragment();
             getFragmentManager().beginTransaction()
                     .replace(R.id.listContainer, fragment)
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
