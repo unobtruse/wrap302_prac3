@@ -1,6 +1,7 @@
 package nmmu.wrap302.prac3.task2;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
@@ -35,14 +36,20 @@ public class Main extends Activity
         initContacts();
         adapter = new ContactAdapter(this, contacts);
         FragmentManager manager = getFragmentManager();
-        ContactsFragment contactsFragment = new ContactsFragment();
-        contactsFragment.setListAdapter(adapter);
         FragmentTransaction ft = manager.beginTransaction();
-        ft.add(R.id.listContainer, contactsFragment);
+        ContactsFragment contactsFragment = (ContactsFragment) manager.findFragmentById(R.id.listContainer);
+        if(contactsFragment == null) {
+            contactsFragment = new ContactsFragment();
+            ft.add(R.id.listContainer, contactsFragment);
+        }
+        contactsFragment.setListAdapter(adapter);
         View editContainer = findViewById(R.id.editContainer);
         if(editContainer != null) {
-            EditFragment editFragment = new EditFragment();
-            ft.add(R.id.editContainer, editFragment);
+            EditFragment editFragment = (EditFragment) manager.findFragmentById(R.id.editContainer);
+            if(editFragment == null) {
+                editFragment = new EditFragment();
+                ft.add(R.id.editContainer, editFragment);
+            }
         }
         ft.commit();
     }
